@@ -38,7 +38,8 @@ namespace ReactWindowsAuth
 			});
 
 			services.AddTransient<Microsoft.AspNetCore.Authentication.IClaimsTransformation, ClaimsTransformer>();
-			services.AddTransient<IUserRoleManager, TranslatedUserRoleManager>();
+			services.AddTransient<IUserRoleManager, UserRoleManager>();
+			//services.AddTransient<IUserRoleManager, TranslatedUserRoleManager>();
 			//services.AddTransient<IUserRoleManager, ActiveDirectoryUserRoleManager>();
 		}
 

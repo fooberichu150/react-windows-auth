@@ -4,6 +4,8 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ReactWindowsAuth.Attributes;
+using ReactWindowsAuth.Models.Security;
 
 namespace ReactWindowsAuth.Controllers
 {
@@ -71,6 +73,20 @@ namespace ReactWindowsAuth.Controllers
 		public IActionResult GetDocker()
 		{
 			return Ok("Has docker-users role!");
+		}
+
+		[HttpGet("admin")]
+		[RoleRequirement(Role.Admin)]
+		public IActionResult Admin()
+		{
+			return Ok("Congrats, you have admin!");
+		}
+
+		[HttpGet("report")]
+		[RoleRequirement(Role.Reports)]
+		public IActionResult Report()
+		{
+			return Ok("Congrats, you can run reports!");
 		}
 	}
 }
