@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ReactWindowsAuth.Services;
 
 namespace ReactWindowsAuth
 {
@@ -37,6 +38,8 @@ namespace ReactWindowsAuth
 			});
 
 			services.AddTransient<Microsoft.AspNetCore.Authentication.IClaimsTransformation, ClaimsTransformer>();
+			services.AddTransient<IUserRoleManager, TranslatedUserRoleManager>();
+			//services.AddTransient<IUserRoleManager, ActiveDirectoryUserRoleManager>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

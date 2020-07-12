@@ -65,5 +65,12 @@ namespace ReactWindowsAuth.Controllers
 		{
 			return Ok("Another");
 		}
+
+		[HttpGet("docker")]
+		[Authorize(Roles = "docker-users")]
+		public IActionResult GetDocker()
+		{
+			return Ok("Has docker-users role!");
+		}
 	}
 }

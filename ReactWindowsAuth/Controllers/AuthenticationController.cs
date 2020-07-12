@@ -40,7 +40,10 @@ namespace ReactWindowsAuth.Controllers
 			var windowsIdentity = principal?.Identity as WindowsIdentity;
 
 			// this gets the ids of everything... if we want actual names we're going to have to query AD directly
-			var roles = windowsIdentity?.Groups.Select(group => group.Value).ToArray() ?? Array.Empty<string>();
+			var roles = windowsIdentity?.Claims
+				.Where(claim => claim.Type == windowsIdentity?.RoleClaimType)
+				.Select(group => group.Value).ToArray() ?? Array.Empty<string>();
+
 			_logger.LogInformation("Roles: {0}", string.Join(",", roles));
 
 			return Ok(roles);
