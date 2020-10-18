@@ -1,6 +1,6 @@
 # Windows Authentication with React and .NET Core: Bare Bones
 
-Code in this repository was created for my blog post [Windows Authentication with React and .NET Core: Bare Bones](https://www.seeleycoder.com/windows-authentication-with-react).
+Code in this repository was created for my blog post [Windows Authentication with React and .NET Core: Bare Bones](https://www.seeleycoder.com/blog/windows-authentication-with-react).
 
 ## Getting started
 
